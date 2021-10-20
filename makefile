@@ -6,3 +6,5 @@ README.md:
 	echo " " >> README.md
 	echo "Number of lines of code contained in guessinggame.sh :" >> README.md
 	wc -l guessinggame.sh | egrep -o "[0-9]+" >> README.md
+	echo " " >> README.md
+	echo "![The INTER-WEBZ](https://openclipart.org/image/800px/317476)" >> README.md
