@@ -1,22 +1,25 @@
 how_many_files=$(ls -1 | wc -l)
 user_input=""
 
+function easter_eggs {
+	if [[ $1 =~ "easter" || $1 =~ "Easter" ]]
+	then
+		echo "	egg!"
+	elif [[ $1 =~ "Hello" || $1 =~ "hello" || $1 =~ "Hi" || $1 =~ "hi" ]]
+	then
+		echo "	Howdy!"
+	fi
+}
+
 echo "Please guess how many files are in the current directory"
 
 while  [[ ! $how_many_files -eq $user_input ]]
 do
 	read user_input
-	if [[ $user_input =~ "easter" || $user_input =~ "Easter" ]]
+	easter_eggs $user_input
+	if [[ ! $user_input =~ ^[0-9]*$ ]]
 	then
-		echo "egg."
-		user_input=""
-	elif [[ $user_input =~ "hello" || $user_input =~ "hi" || $user_input =~ "Hello" ]]
-	then
-		echo "hey."
-		user_input=""
-	elif [[ ! $user_input =~ ^[0-9]*$ ]]
-	then
-		echo "Invalid number! Please enter a positive integer."
+		echo "Invalid entry! Please enter a positive integer."
 		user_input=""
 	elif [[ ${#user_input} -gt 10 ]]
 	then
